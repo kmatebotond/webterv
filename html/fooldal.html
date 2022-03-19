@@ -2,31 +2,63 @@
 <html>
   <head>
     <title>Főoldal</title>
+    <link rel="icon" href="../img/logo.png">
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
+  <div class="top">
     <header>
-      <h1>Webshop</h1>
+      <div id="cim" >
+        <img class="logo" id="flogo" src="../img/logo.png">
+        <h1>Webaruhaz</h1>
+      </div>
+      <h4>Olcsobb, mint gondolnad!</h4>
     </header>
-    <nav>
-      <a href="fooldal.html">Főoldal</a>
-      <a href="">Profil</a>
-      <a href="">Rólunk</a>
-      <a href="kosar.html">Kosár</a>
+    <nav id="navbar">
+      <b>
+        <a class="active bal" href="fooldal.html">Kezdőoldal</a>
+        <a class="bal" href="profil.html">Profil</a>
+        <a class="bal"  href="rolunk.html">Rólunk</a>
+
+        <a class="jobb"  href="regisztracio.html">Regisztracio</a>
+        <a class="jobb"  href="bejelentkezes.html">Bejelentkezes</a>
+      </b>
     </nav>
-    
-    <div>
-      <aside>
-        <ul id="kategoriak"></ul>
-      </aside>
-      <section>
-        <ul id="termekek"></ul>
-      </section>
-    </div>
-    
+  </div>
+  <main>
+
+
+
+    <aside>
+      <p class="cimke"><b>Kategoriak</b></p>
+      <ul id="kategoriak">
+        <li id="minden">
+          Minden
+        </li>
+        <li id="telefon">
+          Telefon
+        </li>
+        <li id="hangszoro">
+          Hangszoro
+        </li>
+      </ul>
+    </aside>
+    <section>
+      <p class="cimke"><b>Termekek</b></p>
+      <a class="termek" href="termek.html">
+        <img class="tkep" src="../img/telefon.png"/>
+        <p class="tnev">Telefon</p>
+      </a>
+    </section>
+
+
+
+
+  </main>
     <footer>
-      <h1>Webshop</h1>
-      <script src="fooldal.js"></script>
+      footer... keszitette..
     </footer>
+  <script src="../js/script.js"></script>
   </body>
 </html>

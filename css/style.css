@@ -114,15 +114,22 @@ main{
 .sticky + aside {
    padding:100px;
 }
-
-nav a {
+.bal{
     float: left;
+
+}
+.jobb{
+    float: right;
+}
+nav a {
+
     text-align: center;
     padding: 14px 16px;
     display: block;
     text-decoration: none;
     font-size: 17px;
 }
+
 
 nav a:hover {
     background-color: rgb(79, 73, 55);

@@ -1,44 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-
-    <title>Webaruhaz</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Profil</title>
+    <link rel="icon" href="../img/logo.png">
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="top">
     <header>
-        <h1>Webaruhaz</h1>
-        <h4>Szlogen Szlogen Szlogen Szlogen Szlogen</h4>
+        <div id="cim" >
+            <img class="logo" id="flogo" src="../img/logo.png">
+            <h1>Webáruház</h1>
+        </div>
+        <h4>Olcsóbb, mint gondolnád!</h4>
     </header>
-    <nav id="navbar">
-        <b>
-            <a class="active" href="#home">Kezdőoldal</a>
-            <a href="#news">Rendelés</a>
-            <a href="#contact">Rólunk</a>
-            <a href="#about">Üzenet</a>
-        </b>
-
-    </nav>
 </div>
+<nav id="navbar">
+    <b>
+        <div class="sticky">
+            <a class="bal" href="fooldal.html">Kezdőoldal</a>
+            <a class="active bal" href="profil.html">Profil</a>
+            <a class="bal"  href="rolunk.html">Rólunk</a>
+
+            <div class="jobb">
+                <a  class="jobb" href="regisztracio.html">Regisztráció</a>
+                <a class="jobb" href="bejelentkezes.html">Bejelentkezés</a>
+            </div>
+        </div>
+    </b>
+</nav>
+
 <main>
-    <div class="profil">
+    <div id="profil">
         <h2>Felhasználói Profil</h2>
-        <p><b>Keresztnév:</b> aaa</p>
-        <p><b>Vezetéknév:</b>aaa </p>
-        <p><b>Születési dátum:</b>aaa </p>
-        <p><b>Település:</b> aaa</p>
-        <p><b>Lakcím:</b> aaa</p>
+        <table>
+
+            <tr>
+                <th colspan="2">Adatok</th>
+            </tr>
+            <tr>
+                <td>
+                    <b>Keresztnév</b>
+                </td>
+                <td> Dani</td>
+            </tr>
+            <tr class="paros">
+                <td>
+                    <b>Vezetéknév</b>
+                </td>
+                <td> Szegedi</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Születési dátum</b>
+                </td>
+                <td> 9999. 99. 99.</td>
+            </tr>
+            <tr class="paros">
+                <td>
+                    <b>Település</b>
+                </td>
+                <td> Szeged</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Lakcím</b>
+                </td>
+                <td> Koli</td>
+            </tr>
+        </table>
+
+
     </div>
+
+
+
+
+
 </main>
-
-
-
-
 <footer>
-    footer... keszitette..
+    A weboldalt készítette Kiss Máté Botond és László Dávid
 </footer>
-<script src="script.js"></script>
 </body>
 </html>

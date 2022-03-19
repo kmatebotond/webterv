@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #c5c3a4;
+}
+p, h2, b{
+    color: #2a251d;
+}
+h2 {
+    display: inline;
+
+}
+
+li{
+    color: black;
+    list-style: none;
+}
+aside{
+    float:left;
+    background-color:white;
+    width:15%
+}
+section{
+    padding: 5px;
+    float: left;
+    min-width:70%;
+}
+.termek{
+    float: left;
+    background-color: white;
+    border-radius: 10px;
+}
+.tkep{
+    width:20vh;
+    border-radius: 10px;
+}
+.tnev{
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    padding-bottom: 10px;
+}
+aside, section{
+    overflow: hidden;
+    padding: 30px;
+
+}
+.cimke{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#flogo{
+    width:100px;
+    height: 100px;
+
+}
+p{
+    padding: 5px 1%;
+}
+body{
+    background-color: rgba(143, 135, 86, 0.82);
+
+}
+.profil{
+    padding: 20px 10%;
+}
+body, main{
+
+    min-height: 73vh;
+
+
+}
+nav {
+
+    background-color: #423d2d;
+    overflow: hidden;
+
+}
+
+.top{
+    box-shadow:0 -45px 100px 5px black;
+}
+header{
+    padding: 15px;
+    background-color: #342e23;
+    color: #a29b74;
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:16px;
+    color: black;
+    margin:0 6%;
+    background-color: #c3c1a4;
+    overflow: hidden;
+    display: block;
+}
+/* Page content */
+.content {
+    padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + aside {
+   padding:100px;
+}
+
+nav a {
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    display: block;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+nav a:hover {
+    background-color: rgb(79, 73, 55);
+    color: antiquewhite;
+}
+
+nav a.active {
+    background-color: #342e22;
+}
+
+footer {
+    float: none;
+    padding: 1.9em;
+    color: #c3c1a4;
+    background: #413d2e;
+}

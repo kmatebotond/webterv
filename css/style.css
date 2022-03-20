@@ -3,7 +3,7 @@
     font-family: Arial, Helvetica, sans-serif;
     color: #c5c3a4;
 }
-p, h2, b, label, input, strong, tr{
+p, h2, h3, b, label, input, strong, tr{
     color: #2a251d;
 }
 tr > th{

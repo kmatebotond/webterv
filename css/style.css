@@ -3,12 +3,67 @@
     font-family: Arial, Helvetica, sans-serif;
     color: #c5c3a4;
 }
-p, h2, b, label, input{
+p, h2, b, label, input, strong, tr{
     color: #2a251d;
 }
-h2 {
-    display: inline;
+tr > th{
+    color: white;
+    background-color: #2a251e;
+}
+td, th{
+    padding:1.5% 3%;
+}
+tr, table{
+    border-radius: 20px;
+    position: center;
 
+}
+table td, table b{
+    color: #e7e5db;
+}
+.paros{
+    background-color: #342e23;
+}
+table{
+    font-size:1.2em;
+    border-collapse: collapse;
+    background-color: #413d2e;
+    margin-top:25px;
+    overflow: hidden;
+    width:90%;
+
+    margin-right: auto;
+    margin-left: auto;
+
+}
+#profil h2{
+    padding:5%;
+}
+#rolunk{
+    padding: 25px 0 50px 0;
+}
+main h2{
+
+    margin:0;
+    color: #2a251d;
+    text-align: center;
+}
+#rolunk p{
+    padding:5px 6%;
+    font-size: 1.3rem;
+
+}
+#rolunk h2{
+    padding:5%;
+    text-align: center;
+}
+hr{
+    margin:5% 0;
+    height: 2px;
+    width:100%;
+    background-color: #413d2e;
+    border:none;
+    border-radius: 1px;
 }
 li{
     color: black;
@@ -67,6 +122,11 @@ body{
 body, main{
     min-height: 73vh;
 }
+#navbar{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
 nav {
 
     background-color: #423d2d;
@@ -92,17 +152,16 @@ main{
     overflow: hidden;
     display: block;
 }
-/* Page content */
+
 .content {
     padding: 16px;
 }
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
     top: 0;
     width: 100%;
 }
-/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + aside {
    padding:100px;
 }
@@ -129,10 +188,12 @@ nav a.active {
     background-color: #342e22;
 }
 footer {
+    text-align: center;
     float: none;
-    padding: 1.9em;
+    padding: 20px;
     color: #c3c1a4;
     background: #413d2e;
+    font-size: 1.1rem;
 }
 a:hover{
     transform: scale(1.1);

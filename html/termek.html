@@ -1,29 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Termék név</title>
+    <title>Termék</title>
+    <link rel="icon" href="../img/logo.png">
     <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="../css/style.css">
   </head>
+
   <body>
-    <header>
-      <h1>Webshop</h1>
-    </header>
-    <nav>
-      <a href="fooldal.html">Főoldal</a>
-      <a href="">Profil</a>
-      <a href="">Rólunk</a>
-      <a href="kosar.html">Kosár</a>
-    </nav>
-    
-    <div>
-      <h2 id="termek-nev">Termék név</h2>
-      <img id="termek-kep" src="" alt="Termék kép"/>
-      <p id="termek-leiras">Termék leírás</p>
-      <button>Kosárhoz adás</button>
+    <div class="top">
+      <header>
+        <div id="cim" >
+          <img class="logo" id="flogo" src="../img/logo.png">
+          <h1>Webáruház</h1>
+        </div>
+        <h4>Olcsóbb, mint gondolnád!</h4>
+      </header>
+      <nav id="navbar">
+        <b>
+          <a class="active bal" href="fooldal.html">Kezdőoldal</a>
+          <a class="bal" href="profil.html">Profil</a>
+          <a class="bal"  href="rolunk.html">Rólunk</a>
+
+          <div class="jobb">
+            <a  class="jobb" href="regisztracio.html">Regisztráció</a>
+            <a class="jobb" href="bejelentkezes.html">Bejelentkezés</a>
+          </div>
+        </b>
+      </nav>
     </div>
     
+    <main>
+    <aside>
+        <p><b>Kijelző:</b> 5,4", 2340 × 1080</p>
+        <p><b>Processzor:</b> 6 magos Apple A14 Bionic processzor</p>
+        <p><b>Tárhely:</b> 64 GB</p>
+        <p><b>Egyéb:</b> GPS, Glonass, NFC, 4G (LTE), 5G, UWB, Lightning port</p>
+    </aside>
+      
+      <div style="text-align: center; overflow: hidden; padding: 30px;">
+        <h2>iPhone 12 Mini</h2><br>
+        <img class="tkep" src="../img/iphone_12_mini.jpg" alt="iPhone 12 Mini"/><br>
+        <video controls width="480">
+          <source src="../vid/iphone_12_ad.mp4" type="video/mp4"/>
+        </video>
+        <p id="termek-leiras" style="float: left">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec varius metus.
+          Proin convallis auctor ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+          Proin vitae odio porttitor, finibus diam eu, mollis lectus. In hac habitasse platea dictumst. Sed vulputate massa tortor,
+          ut sollicitudin leo porttitor a. Vivamus congue arcu id elit euismod porta id sit amet ligula. Mauris sit amet vestibulum erat.
+          Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+    </main>
+    
     <footer>
-      <h1>Webshop</h1>
+      A weboldalt készítette Kiss Máté Botond és László Dávid
     </footer>
+    <script src="../js/sticky.js"></script>
   </body>
 </html>

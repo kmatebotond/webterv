@@ -87,7 +87,7 @@ section{
     margin: 10px
 }
 .tkep{
-    width:20vh;
+    width:10rem;
     border-radius: 10px;
 }
 .tnev{
@@ -114,7 +114,12 @@ p{
 }
 body{
     background-color: rgba(143, 135, 86, 0.82);
-
+    
+    /*animation-name: body_color;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;*/
 }
 .profil{
     padding: 20px 10%;
@@ -134,7 +139,7 @@ nav {
     overflow: hidden;
 }
 .top{
-    box-shadow:0 -45px 100px 5px black;
+    box-shadow:0 -45px 100px 100px black;
 }
 header{
     padding: 15px;
@@ -199,4 +204,40 @@ footer {
 a:hover{
     transform: scale(1.1);
     z-index: -1;
+}
+
+img {
+  animation: fadeIn 5s;
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  -ms-animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@media print {
+  video, nav { display: none; }
 }

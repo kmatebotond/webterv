@@ -110,6 +110,10 @@
             </tbody>
         </table>
 
+        <form action="adatmodositas.php" method="POST">
+          <input type="submit" value="Adatmódosítás"/>
+        </form>
+
         <table>
           <thead>
             <tr>

@@ -11,7 +11,8 @@
     isset($_POST["telepules"]) &&
     isset($_POST["lakcim"]) &&
     isset($_POST["email"]) &&
-    isset($_POST["jelszo"])
+    isset($_POST["jelszo"]) &&
+    isset($_POST["jelszo_ujra"])
     ) {
     $db = new SQLite3("../db/db.db");
     $statement = $db->prepare("INSERT INTO Felhasznalok (keresztnev, vezeteknev, szul_datum, telepules, lakcim, email, jelszo) VALUES (:keresztnev, :vezeteknev, :szul_datum, :telepules, :lakcim, :email, :jelszo)");
@@ -79,9 +80,9 @@
           <label>Település: <input type="text" name="telepules" required/></label> <br/><br/>
           <label>Lakcím: <input type="text" name="lakcim" required/></label> <br/><br/>
           <label>Email cím: <input type="email" name="email" required/></label> <br/><br/>
-          <label>Jelszó: <input type="password" name="jelszo" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
-          <label>Jelszó újra: <input type="password" name="jelszo_ujra" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
-          <input type="submit" name="regisztracio" value="Regisztráció"/>
+          <label>Jelszó: <input id="jelszo" type="password" name="jelszo" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
+          <label>Jelszó újra: <input id="jelszo_ujra" type="password" name="jelszo_ujra" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
+          <input id="elkuldes" type="submit" value="Regisztráció"/>
           <input type="reset" value="Adatok törlése"/>
         </fieldset>
       </form>

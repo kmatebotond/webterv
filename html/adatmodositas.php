@@ -57,7 +57,7 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <title>Regisztráció</title>
+  <title>Adatmódosítás</title>
   <link rel="icon" href="../img/logo.png">
   <meta charset="UTF-8"/>
   <link rel="stylesheet" href="../css/style.css">

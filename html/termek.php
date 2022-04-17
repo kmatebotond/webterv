@@ -7,7 +7,7 @@
       $db = new SQLite3("../db/db.db");
       $statement = $db->prepare("INSERT INTO Rendelesek (email, termek_nev) VALUES (:email, :termek_nev)");
       $statement->bindValue(":email", $_SESSION["email"], SQLITE3_TEXT);
-      $statement->bindValue(":termek_nev", "iPhone 12 Mini", SQLITE3_TEXT);
+      $statement->bindValue(":termek_nev", $_POST["termek_nev"], SQLITE3_TEXT);
       $statement->execute();
     }
   } elseif(isset($_POST["termek_nev"])) {

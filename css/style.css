@@ -251,17 +251,18 @@ img {
 
 
 
-.vasarlas {
+.vasarlas{
     color: white;
     border-radius: 5px;
     background-color: #423d2d;
 
     text-align: center;
-    padding: 10px 10px;
+    margin-top: 30px;
+    padding: 10px 10px 10px 10px;
     text-decoration: none;
     font-size: 17px;
 }
-.vasarlas:hover {
+.vasarlas:hover{
     background-color: rgb(79, 73, 55);
     color: antiquewhite;
 }
@@ -272,3 +273,5 @@ img {
     transform: scale(1.1);
     z-index: -1;
 }
+
+

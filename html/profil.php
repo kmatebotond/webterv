@@ -111,7 +111,7 @@
         </table>
 
         <form action="adatmodositas.php" method="POST">
-          <input type="submit" value="Adatmódosítás"/>
+          <input class="vasarlas" type="submit" value="Adatmódosítás"/>
         </form>
 
         <table>

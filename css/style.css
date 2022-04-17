@@ -86,8 +86,15 @@ section{
     border-radius: 10px;
     margin: 10px
 }
+img.tkep{
+    padding: 5px 20px;
+    height: 100px;
+}
+img.tkep#trmk{
+    padding: 5px 20px;
+    height: 300px;
+}
 .tkep{
-    width:10rem;
     border-radius: 10px;
 }
 .tnev{
@@ -240,4 +247,28 @@ img {
 
 @media print {
   video, nav { display: none; }
+}
+
+
+
+.vasarlas {
+    color: white;
+    border-radius: 5px;
+    background-color: #423d2d;
+
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.vasarlas:hover {
+    background-color: rgb(79, 73, 55);
+    color: antiquewhite;
+}
+.vasarlas.active {
+    background-color: #342e22;
+}
+.vasarlas:hover{
+    transform: scale(1.1);
+    z-index: -1;
 }

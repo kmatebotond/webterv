@@ -16,6 +16,7 @@
       $telepules = $row["telepules"];
       $lakcim = $row["lakcim"];
       $email = $row["email"];
+      $is_admin = $row["is_admin"];
     }
   } else {
     header("Location: bejelentkezes.php");
@@ -116,8 +117,16 @@
           <input class="vasarlas" type="submit" value="Adatmódosítás"/>
         </form>
         <form action="profil_torlese.php" method="POST">
+          <input type="hidden" name="email" value="<?php echo $_SESSION["email"]; ?>">
           <input class="vasarlas" type="submit" value="Profil törlése"/>
         </form>
+        <?php 
+          if ($is_admin) {
+            echo "<form action=\"admin.php\" method=\"POST\">";
+            echo "<input class=\"vasarlas\" type=\"submit\" value=\"Admin\"/>";
+            echo "</form>";
+          }
+        ?>
 
         <table>
           <thead>

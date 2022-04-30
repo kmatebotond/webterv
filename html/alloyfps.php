@@ -1,7 +1,8 @@
 <?php
+  $welcome = "";
   session_start();
   if (isset($_SESSION["keresztnev"]) && isset($_SESSION["email"])) {
-    echo "Szia " . $_SESSION["keresztnev"] . "!";
+    $welcome = "Szia " . $_SESSION["keresztnev"] . "!";
     
     if (isset($_POST["termek_nev"])) {
       $db = new SQLite3("../db/db.db");
@@ -27,6 +28,7 @@
   <body>
     <div class="top">
       <header>
+        <?php echo $welcome; ?>
         <div id="cim" >
           <img class="logo" id="flogo" src="../img/logo.png" alt="Logó">
           <h1>Webáruház</h1>
@@ -65,7 +67,7 @@
 
       <div style="text-align: center; overflow: hidden; padding: 30px;">
         <h2>HyperX Alloy FPS</h2><br>
-        <img class="tkep" id="trmk" style="witdh:100px;" src="../img/alloyfps.png" alt="HyperX Alloy FPS"/><br>
+        <img class="tkep" id="trmk" src="../img/alloyfps.png" alt="HyperX Alloy FPS"/><br>
         <video controls width="480">
           <source src="../vid/alloyfps.mp4" type="video/mp4"/>
         </video>

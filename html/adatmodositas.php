@@ -1,9 +1,10 @@
 <?php
   $db = new SQLite3("../db/db.db");
 
+  $welcome = "";
   session_start();
   if (isset($_SESSION["keresztnev"]) && isset($_SESSION["email"])) {
-    echo "Szia " . $_SESSION["keresztnev"] . "!";
+    $welcome = "Szia " . $_SESSION["keresztnev"] . "!";
 
     $statement = $db->prepare("SELECT * FROM Felhasznalok WHERE email=:email");
     $statement->bindValue(":email", $_SESSION["email"], SQLITE3_TEXT);
@@ -30,7 +31,6 @@
     isset($_POST["uj_jelszo_ujra"]) &&
     isset($_POST["regi_jelszo"])
     ) {
-      echo "--asd";
     $statement = $db->prepare("SELECT jelszo FROM Felhasznalok WHERE email=:email");
     $statement->bindValue(":email", $_POST["email"], SQLITE3_TEXT);
     $results = $statement->execute();
@@ -66,6 +66,7 @@
   <body>
     <div class="top">
       <header>
+        <?php echo $welcome; ?>
         <div id="cim" >
           <img class="logo" id="flogo" src="../img/logo.png" alt="Logó">
           <h1>Webáruház</h1>

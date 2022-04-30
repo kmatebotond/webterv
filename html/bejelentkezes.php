@@ -1,10 +1,14 @@
 <?php
+  $logged_in = true;
+
+  $welcome = "";
   session_start();
   if (isset($_SESSION["keresztnev"]) && isset($_SESSION["email"])) {
-    echo "Szia " . $_SESSION["keresztnev"] . "!";
+    $welcome = "Szia " . $_SESSION["keresztnev"] . "!";
   }
 
   if (isset($_POST["email"]) && isset($_POST["jelszo"])) {
+    $logged_in = false;
     $db = new SQLite3("../db/db.db");
     $statement = $db->prepare("SELECT keresztnev, jelszo FROM Felhasznalok WHERE email=:email");
     $statement->bindValue(":email", $_POST["email"], SQLITE3_TEXT);
@@ -12,6 +16,7 @@
     $row = $results->fetchArray();
     if (!empty($row)) {
       if (password_verify($_POST["jelszo"], $row["jelszo"])) {
+        $logged_in = true;
         $_SESSION["keresztnev"] = $row["keresztnev"];
         $_SESSION["email"] = $_POST["email"];
 
@@ -33,6 +38,7 @@
   <body>
     <div class="top">
       <header>
+        <?php echo $welcome; ?>
         <div id="cim" >
           <img class="logo" id="flogo" src="../img/logo.png" alt="Logó">
           <h1>Webáruház</h1>
@@ -70,6 +76,7 @@
           <input type="submit" value="Bejelentkezés"/>
         </fieldset>
       </form>
+      <?php if (isset($_POST["email"]) && isset($_POST["jelszo"]) && !$logged_in) { echo "<b style=\"color: red;\">Hibás email vagy jelszó.</b>"; } ?>
     </main>
     
     <footer>

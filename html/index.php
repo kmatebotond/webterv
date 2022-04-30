@@ -1,7 +1,8 @@
 <?php
+  $welcome = "";
   session_start();
   if (isset($_SESSION["keresztnev"]) && isset($_SESSION["email"])) {
-    echo "Szia " . $_SESSION["keresztnev"] . "!";
+    $welcome = "Szia " . $_SESSION["keresztnev"] . "!";
   }
 ?>
 
@@ -17,6 +18,7 @@
   <body>
     <div class="top">
       <header>
+        <?php echo $welcome; ?>
         <div id="cim" >
           <img class="logo" id="flogo" src="../img/logo.png" alt="Logó">
           <h1>Webáruház</h1>
@@ -63,11 +65,11 @@
         <h3 class="cimke"><b>Fülhallgatók</b></h3>
         
         <a class="termek" href="g432.php">
-          <img class="tkep" style="height:10em" style="height:10em" src="../img/g432.png" alt="Logitech G432"/>
+          <img class="tkep" style="height:10em" src="../img/g432.png" alt="Logitech G432"/>
           <p class="tnev">Logitech <br>G432</p>
         </a>
         <a class="termek" href="cloud2.php">
-          <img class="tkep" style="height:10em" style="height:10em" src="../img/cloud2.png" alt="HyperX Cloud 2"/>
+          <img class="tkep" style="height:10em" src="../img/cloud2.png" alt="HyperX Cloud 2"/>
           <p class="tnev">HyperX<br> Cloud 2</p>
         </a>
       </section>

@@ -1,7 +1,10 @@
 <?php
+  $registered = true;
+
+  $welcome = "";
   session_start();
   if (isset($_SESSION["keresztnev"]) && isset($_SESSION["email"])) {
-    echo "Szia " . $_SESSION["keresztnev"] . "!";
+    $welcome = "Szia " . $_SESSION["keresztnev"] . "!";
   }
 
   if (
@@ -14,18 +17,25 @@
     isset($_POST["jelszo"]) &&
     isset($_POST["jelszo_ujra"])
     ) {
-    $db = new SQLite3("../db/db.db");
-    $statement = $db->prepare("INSERT INTO Felhasznalok (keresztnev, vezeteknev, szul_datum, telepules, lakcim, email, jelszo) VALUES (:keresztnev, :vezeteknev, :szul_datum, :telepules, :lakcim, :email, :jelszo)");
-    $statement->bindValue(":keresztnev", $_POST["keresztnev"], SQLITE3_TEXT);
-    $statement->bindValue(":vezeteknev", $_POST["vezeteknev"], SQLITE3_TEXT);
-    $statement->bindValue(":szul_datum", $_POST["szul_datum"], SQLITE3_TEXT);
-    $statement->bindValue(":telepules", $_POST["telepules"], SQLITE3_TEXT);
-    $statement->bindValue(":lakcim", $_POST["lakcim"], SQLITE3_TEXT);
-    $statement->bindValue(":email", $_POST["email"], SQLITE3_TEXT);
-    $statement->bindValue(":jelszo", password_hash($_POST["jelszo"], PASSWORD_DEFAULT, ["cost" => 12]), SQLITE3_TEXT);
-    $statement->execute();
+      $db = new SQLite3("../db/db.db");
+      $statement = $db->prepare("SELECT * FROM Felhasznalok WHERE email=:email");
+      $statement->bindValue(":email", $_POST["email"], SQLITE3_TEXT);
+      $results = $statement->execute();
+      if (empty($results->fetchArray())) {
+        $statement = $db->prepare("INSERT INTO Felhasznalok (keresztnev, vezeteknev, szul_datum, telepules, lakcim, email, jelszo) VALUES (:keresztnev, :vezeteknev, :szul_datum, :telepules, :lakcim, :email, :jelszo)");
+        $statement->bindValue(":keresztnev", $_POST["keresztnev"], SQLITE3_TEXT);
+        $statement->bindValue(":vezeteknev", $_POST["vezeteknev"], SQLITE3_TEXT);
+        $statement->bindValue(":szul_datum", $_POST["szul_datum"], SQLITE3_TEXT);
+        $statement->bindValue(":telepules", $_POST["telepules"], SQLITE3_TEXT);
+        $statement->bindValue(":lakcim", $_POST["lakcim"], SQLITE3_TEXT);
+        $statement->bindValue(":email", $_POST["email"], SQLITE3_TEXT);
+        $statement->bindValue(":jelszo", password_hash($_POST["jelszo"], PASSWORD_DEFAULT, ["cost" => 12]), SQLITE3_TEXT);
+        $statement->execute();
 
-    header("Location: bejelentkezes.php");
+        header("Location: bejelentkezes.php");
+      } else {
+        $registered = false;
+      }
   }
 ?>
 
@@ -41,6 +51,7 @@
   <body>
     <div class="top">
       <header>
+        <?php echo $welcome; ?>
         <div id="cim" >
           <img class="logo" id="flogo" src="../img/logo.png" alt="Logó">
           <h1>Webáruház</h1>
@@ -71,21 +82,23 @@
 
     
     <main>
+      <?php if (isset($_POST["keresztnev"]) && !$registered) { echo "<b style=\"color: red;\">Ezzel az email címmel már regisztráltak!</b>"; } ?>
       <form action="regisztracio.php" method="POST">
         <fieldset>
           <legend><b>Regisztráció</b></legend>
-          <label>Keresztnév: <input type="text" name="keresztnev" required/></label> <br/><br/>
-          <label>Vezetéknév: <input type="text" name="vezeteknev" required/></label> <br/><br/>
-          <label>Születési dátum: <input type="date" name="szul_datum" required/></label> <br/><br/>
-          <label>Település: <input type="text" name="telepules" required/></label> <br/><br/>
-          <label>Lakcím: <input type="text" name="lakcim" required/></label> <br/><br/>
-          <label>Email cím: <input type="email" name="email" required/></label> <br/><br/>
-          <label>Jelszó: <input id="jelszo" type="password" name="jelszo" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
-          <label>Jelszó újra: <input id="jelszo_ujra" type="password" name="jelszo_ujra" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
+          <label>Keresztnév: <input id="keresztnev" type="text" name="keresztnev" placeholder="Töltsd ki!" required/></label> <br/><br/>
+          <label>Vezetéknév: <input id="vezeteknev" type="text" name="vezeteknev" placeholder="Töltsd ki!" required/></label> <br/><br/>
+          <label>Születési dátum: <input id="szul_datum" type="date" name="szul_datum" required/></label> <br/><br/>
+          <label>Település: <input id="telepules" type="text" name="telepules" placeholder="Töltsd ki!" required/></label> <br/><br/>
+          <label>Lakcím: <input id="lakcim" type="text" name="lakcim" placeholder="Töltsd ki!" required/></label> <br/><br/>
+          <label>Email cím: <input id="email" type="email" name="email" placeholder="Töltsd ki!" required/></label> <br/><br/>
+          <label>Jelszó: <input id="jelszo" type="password" name="jelszo" placeholder="Töltsd ki!" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
+          <label>Jelszó újra: <input id="jelszo_ujra" type="password" name="jelszo_ujra" placeholder="Töltsd ki!" onKeyUp="jelszoEllenorzes()" required/></label> <br/><br/>
           <input id="elkuldes" type="submit" value="Regisztráció"/>
           <input type="reset" value="Adatok törlése"/>
         </fieldset>
       </form>
+      <b id="hiba" style="color: red;"></b>
     </main>
     
     <footer>

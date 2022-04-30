@@ -1,7 +1,8 @@
 <?php
+  $welcome = "";
   session_start();
   if (isset($_SESSION["keresztnev"]) && isset($_SESSION["email"])) {
-    echo "Szia " . $_SESSION["keresztnev"] . "!";
+    $welcome = "Szia " . $_SESSION["keresztnev"] . "!";
 
     $db = new SQLite3("../db/db.db");
     $statement = $db->prepare("SELECT * FROM Felhasznalok WHERE email=:email");
@@ -32,6 +33,7 @@
 <body>
 <div class="top">
     <header>
+        <?php echo $welcome; ?>
         <div id="cim" >
             <img class="logo" id="flogo" src="../img/logo.png" alt="Logó">
             <h1>Webáruház</h1>
@@ -112,6 +114,9 @@
 
         <form action="adatmodositas.php" method="POST">
           <input class="vasarlas" type="submit" value="Adatmódosítás"/>
+        </form>
+        <form action="profil_torlese.php" method="POST">
+          <input class="vasarlas" type="submit" value="Profil törlése"/>
         </form>
 
         <table>
